@@ -1,6 +1,6 @@
 how to start
 
-client:- npm run dev
+client:- npm run dev,
 server:- npm run dev
 
 credentials :
