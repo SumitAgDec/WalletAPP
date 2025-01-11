@@ -19,10 +19,11 @@ function Signup() {
     if (!response) {
       return console.log("User not signup");
     }
-    console.log("Signup Successfull");
+    console.log(response);
     setUserName("");
     setEmail("");
     setPassword("");
+    localStorage.setItem("user", JSON.stringify(response.data));
     navigate("/");
   };
 

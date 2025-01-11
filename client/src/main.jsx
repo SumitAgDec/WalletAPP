@@ -10,6 +10,8 @@ import {
 } from "react-router-dom";
 import Login from "./components/login.jsx";
 import Signup from "./components/signup.jsx";
+import Wallet from "./components/Wallet.jsx";
+import PrivateRoute from "./components/PrivateRoute";
 
 const router = createBrowserRouter(
   createRoutesFromElements(
@@ -17,6 +19,10 @@ const router = createBrowserRouter(
       <Route path="/" element={<App />} />
       <Route path="/login" element={<Login />} />
       <Route path="/signup" element={<Signup />} />
+
+      <Route element={<PrivateRoute />}>
+        <Route path="/wallet" element={<Wallet />} />
+      </Route>
     </>
   )
 );

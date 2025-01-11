@@ -17,9 +17,10 @@ function Login() {
     if (!response) {
       return console.log("User not signup");
     }
-    console.log("Login Successfull");
+    console.log(response);
     setEmail("");
     setPassword("");
+    localStorage.setItem("user", JSON.stringify(response.data));
     navigate("/");
   };
 

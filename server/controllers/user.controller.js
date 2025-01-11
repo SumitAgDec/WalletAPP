@@ -14,7 +14,7 @@ async function userSignup(req, res) {
     if (user) {
         // return res.status(200).json({ message: "Login successful" });
         const token = createSignedToken(user);
-        return res.cookie("token", token, { httpOnly: true }).json({ message: "Signup successful" });
+        return res.cookie("token", token, { httpOnly: true }).send(user);
     } else {
         return res.status(401).json({ message: "Invalid email or password" });
     }
@@ -37,7 +37,7 @@ async function userLogin(req, res) {
         if (match) {
             const token = createSignedToken(user);
 
-            return res.cookie("token", token, { httpOnly: true }).json({ message: "Login successful" });
+            return res.cookie("token", token, { httpOnly: true }).send(user);
         } else {
             return res.status(401).json({ message: "Invalid email or password" });
         }

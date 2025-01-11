@@ -6,6 +6,8 @@ dotenv.config()
 const app = express()
 
 const userRouter = require("./routes/user.routes")
+const userWallet = require("./routes/wallet.routes")
+const { restrictToLoggedInUserOnlt } = require('./middleware/auth.middleware')
 
 const PORT = process.env.PORT
 
@@ -19,7 +21,7 @@ app.use(CORS())
 
 // routes
 app.use('/user', userRouter)
-// app.use('/wallet', userWallet)
+app.use('/wallet', userWallet)
 
 
 app.listen(PORT, () => (console.log(`http://localhost:${PORT}`)))

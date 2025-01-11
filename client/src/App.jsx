@@ -2,11 +2,20 @@ import { useState } from "react";
 import reactLogo from "./assets/react.svg";
 import viteLogo from "/vite.svg";
 import "./App.css";
+import { useNavigate } from "react-router-dom";
 
 function App() {
-  const [count, setCount] = useState(0);
+  const navigate = useNavigate();
 
-  return <h1 className="text-3xl font-bold underline">Hello world!</h1>;
+  const handleNavigate = () => {
+    navigate("/wallet");
+  };
+
+  return (
+    <div className="flex items-center justify-center h-screen">
+      <button onClick={handleNavigate}>Visit wallet</button>
+    </div>
+  );
 }
 
 export default App;
